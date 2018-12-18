@@ -1,0 +1,174 @@
+\documentclass[border=0.5mm,tikz]{standalone}
+
+\usepackage{ifthen}
+\usepackage{cmap}
+% \usepackage[defaultsans]{droidsans}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{esdiff,esint}
+
+
+\usepackage{pgfplots}
+\usetikzlibrary{shapes, arrows}
+% \pgfplotsset{compat=1.10}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns,calc}
+\usepackage[outline]{contour}
+
+\usetikzlibrary{quotes,angles}
+% Example:
+%   \lineann[1]{30}{2}{$L_1$}
+% \newcommand{\lineann}[4][0.5]{%
+%     \begin{scope}[rotate=#2, blue,inner sep=2pt]
+%         \draw[dashed, blue!40] (0,0) -- +(0,#1)
+%             node [coordinate, near end] (a) {};
+%         \draw[dashed, blue!40] (#3,0) -- +(0,#1)
+%             node [coordinate, near end] (b) {};
+%         \draw[|<->|] (a) -- node[fill=white] {#4} (b);
+%     \end{scope}
+% }
+\begin{document}
+
+\begin{tikzpicture}
+\xdef\len{8}
+
+\xdef\wo{3}
+\xdef\coeff{0.9}
+\xdef\Z{\len}
+\xdef\Shift{10}
+\xdef\AngleShift{4}
+\pgfmathparse{\len+1.2}\let\xmaxx\pgfmathresult
+\pgfmathparse{\wo*sqrt(1+(\coeff*\Z/\wo^2)^2)}\let\H\pgfmathresult
+\pgfmathparse{atan((\H)/(\Z+\Shift))+\AngleShift}\let\angle\pgfmathresult
+\pgfmathparse{tan(\angle)*(\Z+\Shift)+0}\let\ymaxx
+% l длина
+% n полупериодов
+% lena длина полпериода в координатах рисунка
+% n/l*180*x
+\pgfmathresult
+
+\pgfmathparse{sqrt((\Z+\Shift)^2+\H^2)}\let\Rad\pgfmathresult
+
+\tikzset{
+    gaussfill/.style={
+        fill=magenta, opacity=0,
+    },
+    gaussdraw/.style={
+        blue, dashed
+    },    
+    sin/.style={
+        black, line width=1pt,
+    },
+    sinfill/.style={
+        fill=magenta, opacity=0.15,
+    },
+    mirror/.style={
+        blue, line width=1.5pt,
+        fill=blue!30
+    },
+    diel/.style={
+       % pattern=north east lines,
+       draw=black, line width=1pt, fill=yellow, opacity=0.8,
+    },
+}
+
+
+\begin{axis}[axis lines=middle,
+            xlabel={$z$},
+            ylabel={$w(z)$},
+            hide axis,
+            scale=0.8,
+            width=7cm,
+            height=5cm,
+            % enlargelimits,
+            unit vector ratio*=1 1 1,
+            ytick=\empty,
+            xtick=\empty,
+            ymin=-\ymaxx,
+            ymax={\ymaxx+2.5},
+            xmin=-{\xmaxx},
+            xmax={\xmaxx},
+            disabledatascaling,
+            % domain=-2:2, 
+            % restrict y to domain=-2:2,
+            % xtick={1,4},
+            % xticklabels={a,b}
+            ]
+
+
+\contourlength{0.6mm};
+\addplot[name path=A,gaussdraw,domain={-\len:\len},samples=100] {\wo*sqrt(1+(\coeff*x/\wo^2)^2)} node[pos=.8, above]{};
+
+
+\addplot[name path=B,gaussdraw,domain={-\len:\len},samples=100] {-\wo*sqrt(1+(\coeff*x/\wo^2)^2)} node[pos=.8, above]{};
+
+\addplot[gaussfill]fill between[of=A and B, soft clip={domain=-\len:\len}];
+
+
+\begin{scope}[xscale=-1]
+\draw[draw=none] (0,0) coordinate (0) -- (\Z,\H) coordinate (A);
+\draw[draw=none] (0,0) -- (\Z,-\H) coordinate (B);
+\path[mirror,draw=none,opacity=0,name path=C]([shift=(-\angle:\Rad)]-\Shift,0) arc (-\angle:\angle:\Rad);
+\draw[mirror] ([shift=(-\angle:\Rad)]-\Shift,0) coordinate (2) arc (-\angle:\angle:\Rad) -- ++ (1.3,0) -- ($(2)+(1.3,0)$) -- (2) -- cycle;
+\path[name path=D] (A) -- (B);
+\addplot[gaussfill]fill between[of=C and D];
+\end{scope}
+
+\begin{scope}[xscale=1]
+\draw[draw=none] (0,0) coordinate (0) -- (\Z,\H) coordinate (A);
+\draw[draw=none] (0,0) -- (\Z,-\H) coordinate (B);
+\path[mirror,draw=none,opacity=0,name path=C]([shift=(-\angle:\Rad)]-\Shift,0) arc (-\angle:\angle:\Rad);
+\draw[mirror] ([shift=(-\angle:\Rad)]-\Shift,0) coordinate (2) arc (-\angle:\angle:\Rad) -- ++ (1.3,0) -- ($(2)+(1.3,0)$) -- (2) -- cycle;
+\path[name path=D] (A) -- (B);
+\addplot[gaussfill]fill between[of=C and D];
+\end{scope}
+
+\draw[dashed] (-\Rad+\Shift,0) -- (\Rad-\Shift,0);
+
+\xdef\n{13}
+\xdef\inside{0}
+\xdef\scr{1} % сжатие по вертикали в диэлектрике
+\pgfmathparse{\n/(\Rad-\Shift)/2*180}\let\omegga\pgfmathresult
+\pgfmathparse{1/(\n/(\Rad-\Shift)/2)}\let\lena\pgfmathresult
+% l длина
+% n полупериодов
+% lena длина полпериода в координатах рисунка
+% n/l*180*x
+\ifthenelse{\isodd{\n}}%
+    {%нечет
+        \xdef\phhi{90}
+    }%чет
+    {  
+        \xdef\phhi{0}
+        % \xdef\lefft{\lena}
+    }%
+        \xdef\lefft{\lena*\inside/2}
+
+\pgfmathparse{\Rad-\Shift}\let\mirror\pgfmathresult
+% \draw[diel] (-\lefft,-\ymaxx) rectangle (\lefft,\ymaxx) ;
+
+% \draw (0,\ymaxx) node[below] {$n$};
+% \draw (0,-\ymaxx) node[below] {$m=\inside$};
+% \draw (0,0) node {\ymaxx};
+
+\draw[dashed, blue!40] (-\mirror,\ymaxx) -- +(0,2.5)
+            node [coordinate, near end] (a) {};
+        \draw[dashed, blue!40] (\mirror,\ymaxx) -- +(0,2.5)
+            node [coordinate, near end] (b) {};
+        \draw[|<->|] (a) -- node[fill=white] {$L$} (b);
+
+\xdef\p{20.55}
+\addplot[name path=psinus1,sin,domain={-\Rad+\Shift:\Rad-\Shift},samples=400] {\wo*sqrt(1+(\coeff*x/\wo^2)^2)*sin(\omegga*x/(1/\p*(abs(x)-\p))/2+\phhi)*(abs(x)<\lefft?\scr:1)} node[pos=.8, above]{};
+
+\addplot[name path=psinus2,sin,domain={-\Rad+\Shift:\Rad-\Shift},samples=400] {-\wo*sqrt(1+(\coeff*x/\wo^2)^2)*sin(\omegga*x/(1/\p*(abs(x)-\p))/2+\phhi)*(abs(x)<\lefft?\scr:1)} node[pos=.8, above]{}; 
+
+\addplot[sinfill] fill between [of=psinus1 and psinus2, soft clip={domain=-\Rad+\Shift:\Rad-\Shift}];
+
+
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

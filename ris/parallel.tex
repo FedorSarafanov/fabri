@@ -1,0 +1,50 @@
+\documentclass[border=0mm,tikz]{standalone}
+
+
+\usepackage{cmap}
+% \usepackage[defaultsans]{droidsans}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{esdiff,esint}
+
+
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.10}
+\usetikzlibrary{fillbetween}
+\usetikzlibrary{patterns}
+\usepackage[outline]{contour}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\xdef\SIZE{4}
+\xdef\setka{0}
+\input{setka}
+
+\xdef\wo{0.4}
+\xdef\coeff{0.1}
+\xdef\From{-2}
+\xdef\To{2}
+\xdef\domain{\From:\To}
+\xdef\domaint{\To:\From}
+\begin{scope}[]
+\path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+% \draw[](-8,-6)grid(8,6);
+\draw [fill=magenta!50!white] (-2.5,-2.5) rectangle (2.5,2.5);
+\end{scope}
+
+% \draw [fill=black!70, draw=none] (-2,-0.5) rectangle (-1.9,0.5);
+% \draw [fill=black!70, draw=none] (2,-0.5) rectangle (1.9,0.5);
+
+\draw[line width=4pt,blue] (-2,-0.5) -- (-2,0.5);
+\draw[line width=4pt,blue] (2,-0.5) -- (2,0.5);
+% \draw[line width=4pt,blue](\coo,0)({180-\angle}:{180+\angle}:\Radius);
+
+
+\end{tikzpicture}
+
+\end{document}

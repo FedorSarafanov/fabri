@@ -1,0 +1,224 @@
+\documentclass[border=0mm,tikz]{standalone}
+
+
+\usepackage{cmap}
+% \usepackage[defaultsans]{droidsans}
+% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{esdiff,esint}
+
+
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.10}
+\usetikzlibrary{fillbetween}
+\usetikzlibrary{patterns,arrows}
+\usepackage[outline]{contour}
+\def\centerarc[#1](#2)(#3:#4:#5);%
+%Syntax: [draw options] (center) (initial angle:final angle:radius)
+    {
+    %\draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5);
+    \draw[#1]([shift=(#3:#5)]#2) arc (#3:#4:#5);
+    % \draw[dashed, line width=1.5pt] (#2) -- ++(#3:#5);
+    
+    % \draw [fill=magenta] (#2) circle  (3.5pt);
+    % \draw[dashed, line width=1.5pt] (#2) -- ++(#4:#5);
+    }
+\def\carcrad[#1](#2)(#3:#4:#5);%
+    {
+    \draw[dashed, line width=1.5pt] (#2) -- ++(#3:#5);
+    \draw [fill=magenta] (#2) circle  (3.5pt);
+    }
+\begin{document}
+
+\begin{tikzpicture}[scale=1.2]
+
+\xdef\SIZE{4}
+% \xdef\setka{1}
+\input{setka}
+
+
+
+\begin{scope}[xshift=2cm,yshift=0cm]
+    \xdef\wo{0.45}
+    \xdef\coeff{0.1}
+    \xdef\From{-3.5}
+    \xdef\To{3.5}
+    \xdef\domain{\From:\To}
+    \xdef\domaint{\To:\From}
+    \begin{scope}
+    \path[clip] (-3,-0.8) rectangle (3,0.8);
+    \begin{scope}
+    \path[clip] circle (3cm);
+    \begin{scope}[]
+    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+    % \draw[](-8,-6)grid(8,6);
+    \draw [fill=magenta!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
+    \end{scope}
+    \end{scope}
+    \end{scope}
+    \xdef\angle{13}
+    \centerarc[line width=8pt,blue](-1,0)(-\angle:\angle:4);
+    \centerarc[line width=8pt,blue](1,0)({180-\angle}:{180+\angle}:4);   
+\end{scope}
+
+
+\begin{scope}[rotate around={-90:(0,0)}]
+% \xdef\SIZE{4}
+% \xdef\setka{1}
+% \input{setka}
+\path[clip] (1,0) -- (-1,2) -- (-3,2) -- (-3,0) -- cycle;
+
+    \xdef\wo{0.3}
+    \xdef\coeff{0.06}
+    \xdef\From{-3.5}
+    \xdef\To{3.5}
+    \xdef\domain{\From:\To}
+    \xdef\domaint{\To:\From}
+    \begin{scope}[yshift=1.02cm,xshift=-2.05cm]
+    \path[clip] (-3,-0.8) rectangle (3,0.8);
+    % \draw (-3,-0.8) rectangle (3,0.8);
+    \begin{scope}
+    \path[clip] circle (3cm);
+    \begin{scope}[]
+    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+    % \draw[](-8,-6)grid(8,6);
+    \draw [fill=magenta!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
+    \end{scope}
+    \end{scope}
+    \end{scope} 
+\end{scope}
+
+\begin{scope}[rotate around={-90:(0,0)}]
+% \xdef\SIZE{4}
+% \xdef\setka{1}
+% \input{setka}
+\path[clip] (1,0) -- (-1,2) -- (2.5,2) -- (2.5,0) -- cycle;
+
+    \xdef\wo{0.3}
+    \xdef\coeff{0.06}
+    \xdef\From{-4}
+    \xdef\To{4}
+    \xdef\domain{\From:\To}
+    \xdef\domaint{\To:\From}
+    \begin{scope}[yshift=1.02cm,xshift=-2.05cm]
+    \path[clip] (-3,-0.8) rectangle (4,4);
+    % \draw (-3,-0.8) rectangle (3,0.8);
+    \begin{scope}
+    \path[clip] circle (4cm);
+    \begin{scope}[]
+    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+    % \draw[](-8,-6)grid(8,6);
+    \draw [fill=red!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
+    \end{scope}
+    \end{scope}
+    \end{scope} 
+\end{scope}
+
+\begin{scope}[]
+% \xdef\SIZE{4}
+% \xdef\setka{1}
+% \input{setka}
+\path[clip] (0,3) -- (2,1) -- (0,1) -- cycle;
+
+    \xdef\wo{0.3}
+    \xdef\coeff{0.06}
+    \xdef\From{-3.5}
+    \xdef\To{3.5}
+    \xdef\domain{\From:\To}
+    \xdef\domaint{\To:\From}
+    \begin{scope}[yshift=2cm,xshift=1cm]
+    \path[clip] (-3,-0.8) rectangle (3,0.8);
+    % \draw (-3,-0.8) rectangle (3,0.8);
+    \begin{scope}
+    \path[clip] circle (3cm);
+    \begin{scope}[]
+    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+    % \draw[](-8,-6)grid(8,6);
+    \draw [fill=magenta!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
+    \end{scope}
+    \end{scope}
+    \end{scope} 
+\end{scope}
+
+\begin{scope}[]
+% \xdef\SIZE{4}
+% \xdef\setka{1}
+% \input{setka}
+\path[clip] (0,3) -- (2,1) -- (2,4) -- cycle;
+
+    \xdef\wo{0.3}
+    \xdef\coeff{0.06}
+    \xdef\From{-3.5}
+    \xdef\To{3.5}
+    \xdef\domain{\From:\To}
+    \xdef\domaint{\To:\From}
+    \begin{scope}[yshift=2cm,xshift=1cm]
+    \path[clip] (-3,-0.8) rectangle (3,0.8);
+    % \draw (-3,-0.8) rectangle (3,0.8);
+    \begin{scope}
+    \path[clip] circle (3cm);
+    \begin{scope}[]
+    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+    % \draw[](-8,-6)grid(8,6);
+    \draw [fill=red!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
+    \end{scope}
+    \end{scope}
+    \end{scope} 
+\end{scope}
+
+
+\draw [thick, black, line width=4pt] (2,1.5) -- node[right,scale=1.3] {2} (2,2.5);
+\draw [thick, black, line width=4pt] (0.25,-1.45) -- node[below,scale=1.3] {1} (1.8,-1.45);
+
+\draw[line width=2pt,black] (1,0) -- ++(45:0.97) (1,0) -- ++ ({-180+45}:1.1);
+
+\draw[line width=2pt,black] (1,2) -- ++({180-45}:0.5) (1,2) -- ++ ({-45}:0.5);
+
+
+
+\draw[fill=white] (0,1.5) rectangle node {ЛОВ} ++ (-2,1);
+
+\draw[fill=white] (0,3) rectangle node {Детектор} ++ (2,1);
+
+\draw [<->, thick, >=latex'] (1,0)++({-180+45}:1.3) to [out={180+45},in=0] ++({-180+45}:1) node[left] {Пленка связи};
+
+\draw [<->, thick, >=latex'] (1,2)++({180-45}:0.7) to [out={180-45},in=0] (-1,3) node[left] {Делитель 3 дБ};
+
+
+\draw[dashed,blue] (-1,0) -- ++(0,1.3) (5,0) -- ++(0,1.6) (6,0) -- ++(0,1.6);
+
+\draw[|<->|] (-1,1.1) -- node[pos=0.5,scale=1.5,fill=white] {$L$} (5,1.1);
+
+\draw [|<-] (5,1.5) -- ++ (-0.5,0);\draw [|<-]  (6,1.5) -- ++ (0.5,0);
+
+\draw (5.5,1.5) node[scale=1.5,fill=white] {$\Delta L$} ++(0,0.25) coordinate (dl);
+\draw (5.5,2.5) node[fill=white, text width=2.5cm, align=center] {Высокоточный индикатор перемещения зеркала} ++(0,0.25) coordinate (dl);
+
+\begin{scope}[xshift=3cm, opacity=0.3]
+\xdef\angle{13.6}
+\centerarc[line width=8pt,blue](-1,0)(-\angle:\angle:4); 
+\end{scope}
+
+\draw [dashed,->] (-1,0) -- (5,0);% node[right] {Ось резонатора};
+
+\draw [<->, thick, >=latex'] (1.8,-1.45)++(0.25,0) to [out=0,in=180] ++(1,-0.25) node[right,text width=4cm,] {1,2 -- зеркала для отражения <<в потолок>> лишнего излучения};
+
+
+% \draw [fill=black!70, draw=none] (-2,-0.5) rectangle (-1.9,0.5);
+% \draw [fill=black!70, draw=none] (2,-0.5) rectangle (1.9,0.5);
+
+% \draw[line width=4pt,blue] (-2,-0.5) -- (-2,0.5);
+% \draw[line width=4pt,blue] (2,-0.5) -- (2,0.5);
+% % \draw[line width=4pt,blue](\coo,0)({180-\angle}:{180+\angle}:\Radius);
+
+
+% \carcrad[line width=4pt,blue](-2,0)(-\angle:\angle:4);
+% \carcrad[line width=4pt,blue](2,0)({180-\angle}:{180+\angle}:4);
+
+
+\end{tikzpicture}
+
+\end{document}
