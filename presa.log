@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.31)  13 DEC 2018 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.10.31)  20 DEC 2018 10:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1452,7 +1452,12 @@ LaTeX Font Info:    Try loading font information for U+esint on input line 44.
 File: uesint.fd 
 ) [1
 
-{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 70--70
+[]| []  
+ []
+
+[2
 
 ]
 <ris/E.pdf, id=92, 123.73026pt x 78.21019pt>
@@ -1465,7 +1470,12 @@ File: ris/w.pdf Graphic file (type pdf)
 <use ris/w.pdf>
 Package pdftex.def Info: ris/w.pdf  used on input line 118.
 (pdftex.def)             Requested size: 141.48363pt x 89.44437pt.
- [3
+
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 118--118
+[]| []  
+ []
+
+[3
 
  <./ris/E.pdf> <./ris/w.pdf>]
 <ris/fq.pdf, id=145, 174.33029pt x 76.82602pt>
@@ -1483,6 +1493,11 @@ File: ris/fabri.pdf Graphic file (type pdf)
 <use ris/fabri.pdf>
 Package pdftex.def Info: ris/fabri.pdf  used on input line 161.
 (pdftex.def)             Requested size: 114.23247pt x 80.65613pt.
+
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 161--161
+[]| []  
+ []
+
 [4
 
 pdfTeX warning (ext4): destination with the same identifier (name{fig:chem}) ha
@@ -1508,6 +1523,11 @@ Overfull \hbox (1.79825pt too wide) in paragraph at lines 175--175
  []
 
 
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 175--175
+[]| []  
+ []
+
+
 Overfull \vbox (16.88641pt too high) detected at line 175
  []
 
@@ -1519,21 +1539,36 @@ File: ris/p.pdf Graphic file (type pdf)
 <use ris/p.pdf>
 Package pdftex.def Info: ris/p.pdf  used on input line 219.
 (pdftex.def)             Requested size: 147.72757pt x 126.71252pt.
- [6
+
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 219--219
+[]| []  
+ []
+
+[6
 
  <./ris/p.pdf>]
-<ris/chem_exp.pdf, id=247, 335.51547pt x 222.13087pt>
+<ris/chem_exp.pdf, id=247, 336.31044pt x 209.98048pt>
 File: ris/chem_exp.pdf Graphic file (type pdf)
 <use ris/chem_exp.pdf>
 Package pdftex.def Info: ris/chem_exp.pdf  used on input line 234.
-(pdftex.def)             Requested size: 335.51465pt x 222.13031pt.
+(pdftex.def)             Requested size: 336.3096pt x 209.97995pt.
 pdfTeX warning (ext4): destination with the same identifier (name{fig:chem}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.234 \end{frame}
                  
-Overfull \vbox (11.9125pt too high) detected at line 234
+Overfull \hbox (0.56697pt too wide) in paragraph at lines 234--234
+ [] 
+ []
+
+
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 234--234
+[]| []  
+ []
+
+
+Overfull \vbox (6.0392pt too high) detected at line 234
  []
 
 [7
@@ -1561,6 +1596,11 @@ s been already used, duplicate ignored
                    \relax 
 l.266 \end{frame}
                  
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 266--266
+[]| []  
+ []
+
+
 Overfull \vbox (1.48038pt too high) detected at line 266
  []
 
@@ -1569,6 +1609,11 @@ Overfull \vbox (1.48038pt too high) detected at line 266
  <./ris/dl.pdf> <./ris/fres.pdf>]
 Overfull \hbox (9.02754pt too wide) detected at line 335
  \OML/cmm/m/it/12 n \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 q[] [][]
+ []
+
+
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 335--335
+[]| []  
  []
 
 [9
@@ -1607,12 +1652,22 @@ s been already used, duplicate ignored
                    \relax 
 l.381 \end{frame}
                  
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 381--381
+[]| []  
+ []
+
+
 Overfull \vbox (8.0008pt too high) detected at line 381
  []
 
 [10
 
- <./ris/f-.pdf> <./ris/f0.pdf> <./ris/f+.pdf>] [11
+ <./ris/f-.pdf> <./ris/f0.pdf> <./ris/f+.pdf>]
+Overfull \hbox (7.43707pt too wide) in paragraph at lines 395--395
+[]| []  
+ []
+
+[11
 
 ] [12
 
@@ -1624,11 +1679,11 @@ Overfull \hbox (4.07826pt too wide) detected at line 428
 [13
 
 ]
-<ris/Rf.pdf, id=351, 267.63388pt x 190.51576pt>
+<ris/Rf.pdf, id=351, 267.63586pt x 190.51576pt>
 File: ris/Rf.pdf Graphic file (type pdf)
 <use ris/Rf.pdf>
 Package pdftex.def Info: ris/Rf.pdf  used on input line 437.
-(pdftex.def)             Requested size: 267.63321pt x 190.51529pt.
+(pdftex.def)             Requested size: 267.63521pt x 190.51529pt.
  [14
 
  <./ris/Rf.pdf>]
@@ -1656,7 +1711,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  37839 strings out of 492639
  845797 string characters out of 6133087
- 1028691 words of memory out of 5000000
+ 1028694 words of memory out of 5000000
  40910 multiletter control sequences out of 15000+600000
  20501 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1686,7 +1741,7 @@ super/sfss1200.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfss
 c:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfss2488.pfb><c:/texlive
 /2018/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><c:/texlive/2018/texm
 f-dist/fonts/type1/public/cm-super/sfsx1728.pfb>
-Output written on presa.pdf (14 pages, 427774 bytes).
+Output written on presa.pdf (14 pages, 426985 bytes).
 PDF statistics:
  467 PDF objects out of 1000 (max. 8388607)
  370 compressed objects within 4 object streams

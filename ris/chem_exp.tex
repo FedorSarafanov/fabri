@@ -35,11 +35,11 @@
 
 \begin{tikzpicture}[scale=1.2]
 
-\xdef\SIZE{4}
+% \xdef\SIZE{8}
 % \xdef\setka{1}
-\input{setka}
+% \input{setka}
 
-
+\path[clip] (-3.25,-2) rectangle (6.6,4.15);
 
 \begin{scope}[xshift=2cm,yshift=0cm]
     \xdef\wo{0.45}
@@ -121,11 +121,11 @@
 % \xdef\SIZE{4}
 % \xdef\setka{1}
 % \input{setka}
-\path[clip] (0,3) -- (2,1) -- (0,1) -- cycle;
+% \path[clip] (0,3) -- (2,1) -- (0,1) -- cycle;
 
-    \xdef\wo{0.3}
-    \xdef\coeff{0.06}
-    \xdef\From{-3.5}
+    \xdef\wo{0.2}
+    \xdef\coeff{0.015}
+    \xdef\From{0}
     \xdef\To{3.5}
     \xdef\domain{\From:\To}
     \xdef\domaint{\To:\From}
@@ -134,40 +134,49 @@
     % \draw (-3,-0.8) rectangle (3,0.8);
     \begin{scope}
     \path[clip] circle (3cm);
-    \begin{scope}[]
-    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+    \begin{scope}[xshift=-2.5cm]
+    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*(\x)/\wo^2)^2)}) -- cycle;
     % \draw[](-8,-6)grid(8,6);
     \draw [fill=magenta!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
     \end{scope}
     \end{scope}
     \end{scope} 
+
+
+    \draw[black,thick] (-0.25,2) coordinate (xc) -- ++ (45:0.5) coordinate (xa);
+    \draw[black,thick] (-0.25,2) -- ++ (-45:0.5) coordinate (xb);
+
+    \draw[draw=none,fill=white] (xc) -- (xa) -- (0.5,2.5) -- (-1.5,2.5) -- (-1.5,1.5) -- (0.5,1.5) -- (xb) -- cycle;
+
+    \draw[black,thick] (-0.25,2) coordinate (xc) -- ++ (45:0.5) coordinate (xa);
+    \draw[black,thick] (-0.25,2) -- ++ (-45:0.5) coordinate (xb);
 \end{scope}
 
-\begin{scope}[]
-% \xdef\SIZE{4}
-% \xdef\setka{1}
-% \input{setka}
-\path[clip] (0,3) -- (2,1) -- (2,4) -- cycle;
+% \begin{scope}[]
+% % \xdef\SIZE{4}
+% % \xdef\setka{1}
+% % \input{setka}
+% \path[clip] (0,3) -- (2,1) -- (2,4) -- cycle;
 
-    \xdef\wo{0.3}
-    \xdef\coeff{0.06}
-    \xdef\From{-3.5}
-    \xdef\To{3.5}
-    \xdef\domain{\From:\To}
-    \xdef\domaint{\To:\From}
-    \begin{scope}[yshift=2cm,xshift=1cm]
-    \path[clip] (-3,-0.8) rectangle (3,0.8);
-    % \draw (-3,-0.8) rectangle (3,0.8);
-    \begin{scope}
-    \path[clip] circle (3cm);
-    \begin{scope}[]
-    \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
-    % \draw[](-8,-6)grid(8,6);
-    \draw [fill=red!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
-    \end{scope}
-    \end{scope}
-    \end{scope} 
-\end{scope}
+%     \xdef\wo{0.3}
+%     \xdef\coeff{0.06}
+%     \xdef\From{-5}
+%     \xdef\To{5} 
+%     \xdef\domain{\From:\To}
+%     \xdef\domaint{\To:\From}
+%     \begin{scope}[yshift=2cm,xshift=1cm]
+%     \path[clip] (-3,-0.8) rectangle (3,0.8);
+%     % \draw (-3,-0.8) rectangle (3,0.8);
+%     \begin{scope}
+%     \path[clip] circle (3cm);
+%     \begin{scope}[]
+%     \path[clip] plot[domain=\domain,samples=100,variable=\x] (\x,{-\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- plot[domain=\domaint,samples=100,variable=\x] (\x,{\wo*sqrt(1+(\coeff*\x/\wo^2)^2)}) -- cycle;
+%     % \draw[](-8,-6)grid(8,6);
+%     \draw [fill=red!50,opacity=0.5] (-3.5,-3.5) rectangle (3.5,2.5);
+%     \end{scope}
+%     \end{scope}
+%     \end{scope} 
+% \end{scope}
 
 
 \draw [thick, black, line width=4pt] (2,1.5) -- node[right,scale=1.3] {2} (2,2.5);
@@ -179,13 +188,14 @@
 
 
 
-\draw[fill=white] (0,1.5) rectangle node {ЛОВ} ++ (-2,1);
+\draw[fill=white, opacity=1,xshift=-1cm] (0,1.5) rectangle node[text width=1.8cm,align=center,scale=0.9] {Лампа обратной волны} ++ (-2,1);
 
-\draw[fill=white] (0,3) rectangle node {Детектор} ++ (2,1);
+\draw[black, thick] (-1,2) -- ++({1-0.25},0);
+
 
 \draw [<->, thick, >=latex'] (1,0)++({-180+45}:1.3) to [out={180+45},in=0] ++({-180+45}:1) node[left] {Пленка связи};
 
-\draw [<->, thick, >=latex'] (1,2)++({180-45}:0.7) to [out={180-45},in=0] (-1,3) node[left] {Делитель 3 дБ};
+\draw [<->, thick, >=latex'] (1,2)++({180-45}:0.7) to [out={180-45},in=0] (-1,3.25) node[left] {Делитель 3 дБ};
 
 
 \draw[dashed,blue] (-1,0) -- ++(0,1.3) (5,0) -- ++(0,1.6) (6,0) -- ++(0,1.6);
@@ -204,9 +214,19 @@
 
 \draw [dashed,->] (-1,0) -- (5,0);% node[right] {Ось резонатора};
 
-\draw [<->, thick, >=latex'] (1.8,-1.45)++(0.25,0) to [out=0,in=180] ++(1,-0.25) node[right,text width=4cm,] {1,2 -- зеркала для отражения <<в потолок>> лишнего излучения};
+\draw [<->, thick, >=latex'] (1.8,-1.45)++(0.25,0) to [out=0,in=180] ++(1,-0.25) node[right,text width=4cm,] {1,2 -- поглотители};
 
 
+\draw[black,thick] (1,3) -- ++ (-45:0.5) coordinate (x1);
+\draw[black,thick] (1,3) -- ++ ({180+45}:0.5) coordinate (x2);
+
+\draw[draw=none, fill=white] (x1) -- (1.5,3) -- (0.5,3) -- (x2) -- (1,3);
+
+\draw[black,thick] (1,3) -- ++ (-45:0.5) coordinate (x1);
+\draw[black,thick] (1,3) -- ++ ({180+45}:0.5) coordinate (x2);
+
+\draw[fill=white, opacity=1] (0,3.5) rectangle node {Детектор} ++ (2,0.5);
+\draw[black,thick] (1,3) -- ++ (0,0.5);
 % \draw [fill=black!70, draw=none] (-2,-0.5) rectangle (-1.9,0.5);
 % \draw [fill=black!70, draw=none] (2,-0.5) rectangle (1.9,0.5);
 

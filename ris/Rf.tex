@@ -97,8 +97,8 @@
             % ymin=-\ymaxx,
             ymax=0.02,
             ymin=0,
-            xmin=168.8,
-            xmax=171.2,
+            xmin=138.8,
+            xmax=141.2,
             % xmin=-23,
             % xmax=23,
             % xmax={\xmaxx},
@@ -126,34 +126,34 @@
 % Coefficients (with 95% confidence bounds):
 %        p1 =       8.072  (8.018, 8.127)
 %        p2 =       -2745  (-2763, -2726)
-%        p3 =   2.333e+05  (2.317e+05, 2.349e+05)
+%        p3 =   2.333e+05  (2.314e+05, 2.349e+05)
 
 % \contourlength{0.6mm};
-\addplot[name path=A,domain={168.8:171.2},samples=1000,blue] { (x-170)^2/120} node[pos=.5, above]{};
+\addplot[name path=A,domain={138.8:141.2},samples=1000,blue] { (x-140)^2/120} node[pos=.5, above]{};
 
-\addplot[name path=B,domain={168.8:171.2},samples=1000,black] { (x-170)^2/43} node[pos=.5, above]{};
+\addplot[name path=B,domain={138.8:141.2},samples=1000,black] { (x-140)^2/43} node[pos=.5, above]{};
 
-\addplot[name path=C,domain={168.8:171.2},samples=1000,red] { (x-170)^2/18} node[pos=.5, above]{};
+\addplot[name path=C,domain={138.8:141.2},samples=1000,red] { (x-140)^2/18} node[pos=.5, above]{};
 
-% \addplot[name path=D,domain={168.8:171.2},samples=1000,orange] {1h} node[pos=.5, above]{};
+% \addplot[name path=D,domain={138.8:141.2},samples=1000,orange] {1h} node[pos=.5, above]{};
 
-\addplot[mark=none, orange, line width=1pt] coordinates {(168.8,0.01) (172.2,0.01)};
+\addplot[mark=none, orange, line width=1pt] coordinates {(138.8,0.01) (142.2,0.01)};
 
-\addplot[mark=none, blue, dashed] coordinates {(168.905,0.01) (168.905,0.015)};
-\addplot[mark=none, blue, dashed] coordinates {(171.095,0.01) (171.095,0.015)};
+\addplot[mark=none, blue, dashed] coordinates {(138.905,0.01) (138.905,0.015)};
+\addplot[mark=none, blue, dashed] coordinates {(141.095,0.01) (141.095,0.015)};
 
-\addplot[mark=none, black, dashed] coordinates {(169.344,0.01) (169.344,0.012)};
-\addplot[mark=none, black, dashed] coordinates {(170.656,0.01) (170.656,0.012)};
+\addplot[mark=none, black, dashed] coordinates {(139.344,0.01) (139.344,0.012)};
+\addplot[mark=none, black, dashed] coordinates {(140.656,0.01) (140.656,0.012)};
 
 
-\addplot[mark=none, red, dashed] coordinates {(169.576,0.01) (169.576,0)};
-\addplot[mark=none, red, dashed] coordinates {(170.424,0.01) (170.424,0)};
+\addplot[mark=none, red, dashed] coordinates {(139.576,0.01) (139.576,0)};
+\addplot[mark=none, red, dashed] coordinates {(140.424,0.01) (140.424,0)};
 
-\draw[|<->|,blue] (168.905,0.015) -- node[blue,fill=white] {CVD-Diamond 2200 МГц} (171.095,0.015);
+\draw[|<->|,blue] (138.905,0.015) -- node[blue,fill=white] {CVD-Diamond 2200 МГц} (141.095,0.015);
 
-\draw[|<->|,black] (169.344,0.012) -- node[black,fill=white] {BN 1300 МГц} (170.656,0.012);
+\draw[|<->|,black] (139.344,0.012) -- node[black,fill=white] {BN 1300 МГц} (140.656,0.012);
 
-\draw[|<->|,red] (169.576,0.008) -- node[red,fill=white] {AlN 800 МГц} (170.424,0.008);
+\draw[|<->|,red] (139.576,0.008) -- node[red,fill=white] {AlN 800 МГц} (140.424,0.008);
 % \addplot[name path=A,domain={-15:-5},samples=150] {exp(-(x+10)^2)*25} node[pos=.5, above]{$\Delta f_{q-1}$};
 
 % \addplot[name path=A,domain={5:15},samples=150] {exp(-(x-10)^2)*25} node[pos=.5, above]{$\Delta f_{q+1}$};

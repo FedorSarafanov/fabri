@@ -25,10 +25,17 @@
 
 % \setbeamercolor{frametitle right}{fg=white,bg=Brown!85}
 % \setbeamercolor{frametitle}{fg=white,bg=Brown!85}
-\setbeamercolor{frametitle right}{fg=white,bg=black!85!blue}
-\setbeamercolor{frametitle}{fg=white,bg=black!85!blue}
+% \setbeamercolor{frametitle right}{fg=white,bg=black!85!blue}
+% \setbeamercolor{frametitle}{fg=white,bg=black!85!blue}
 
-\setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]
+\setbeamercolor{frametitle right}{bg=white,fg=black!85!blue}
+\setbeamercolor{frametitle}{bg=white,fg=black!85!blue}
+
+% \setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]
+\setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false,center]
+
+
+
 % \setbeamertemplate{frametitle}
 % {
 %     \nointerlineskip
@@ -42,7 +49,7 @@
 \setbeamertemplate{frametitle}{%
     \nointerlineskip%
     \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.6ex]{frametitle}
-        \hspace*{1ex}\insertframetitle%
+        \hspace*{1ex}\centerline{\insertframetitle}%
     \end{beamercolorbox}%
 }
 \setbeamertemplate{headline}{}

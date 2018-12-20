@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1544633923 "chem_exp.tex" "chem_exp.pdf" "chem_exp" 1544633927
+["pdflatex"] 1545290989 "chem_exp.tex" "chem_exp.pdf" "chem_exp" 1545290992
   "c:/Users/osabio/.texlive2018/texmf-var/fonts/tfm/lh/lh-t2a/larm1000.tfm" 1541092021 3220 0e417eaf233b160335902e97259a6c77 ""
   "c:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc" 1540832208 3141 82d5616418ed8d5de703b3951bedecb4 ""
   "c:/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1540832657 3332 103109f5612ad95229751940c61aada0 ""
@@ -194,10 +194,9 @@
   "c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1540990422 2999905 4378877db655eacc018579c78a6d59db ""
   "c:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1540990963 4218686 c58581623dc700ee6be6edfac165c6dc ""
   "c:/texlive/2018/texmf.cnf" 1540834531 673 4ae7b2f49cee444c5343a45b5d0f169c ""
-  "chem_exp.aux" 1544633927 8 a94a2480d3289e625eea47cd1b285758 ""
-  "chem_exp.tex" 1544633922 7571 bcc3fffa8529b346a504fef440c3c07e ""
-  "setka.tex" 1541188152 433 51acee4652d82ab69f34af9618b0cfc1 ""
+  "chem_exp.aux" 1545290992 8 a94a2480d3289e625eea47cd1b285758 ""
+  "chem_exp.tex" 1545290988 8560 32c4977cc515ce1b8b3d50ce87f3892c ""
   (generated)
-  "chem_exp.log"
   "chem_exp.pdf"
+  "chem_exp.log"
   "chem_exp.aux"

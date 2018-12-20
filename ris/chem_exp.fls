@@ -280,8 +280,6 @@ INPUT c:/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT c:/texlive/2018/texmf-dist/tex/latex/ucs/ucsencs.def
 INPUT c:/texlive/2018/texmf-dist/tex/latex/ucs/ucsencs.def
-INPUT setka.tex
-INPUT setka.tex
 INPUT c:/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-4.def
 INPUT c:/texlive/2018/texmf-dist/tex/latex/ucs/data/uni-4.def
 INPUT c:/texlive/2018/texmf-dist/tex/latex/cmap/ot1.cmap
